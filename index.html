@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mapa Turístico Matus</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:Arial, Helvetica, sans-serif;
+            background:#f4f4f4;
+            padding:30px;
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:40px;
+            color:#1b4332;
+            font-size:40px;
+        }
+
+        .contenedor{
+            max-width:1300px;
+            margin:auto;
+        }
+
+        .card{
+            background:white;
+            border-radius:18px;
+            padding:30px;
+            margin-bottom:30px;
+
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:40px;
+
+            box-shadow:0px 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .info{
+            flex:1;
+        }
+
+        .info h2{
+            color:#2d6a4f;
+            font-size:34px;
+            margin-bottom:15px;
+        }
+
+        .info h3{
+            font-size:25px;
+            margin-bottom:15px;
+        }
+
+        .telefono{
+            font-size:28px;
+            font-weight:bold;
+            margin-bottom:25px;
+        }
+
+        .info p{
+            font-size:20px;
+            margin-bottom:12px;
+            line-height:1.6;
+        }
+
+        button{
+            margin-top:20px;
+            background:#0d6efd;
+            color:white;
+            border:none;
+            padding:14px 25px;
+            border-radius:8px;
+            font-size:18px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        button:hover{
+            background:#084298;
+        }
+
+        .imagen{
+            width:350px;
+            flex-shrink:0;
+        }
+
+        .imagen img{
+            width:100%;
+            border-radius:15px;
+            object-fit:cover;
+        }
+
+        @media(max-width:900px){
+
+            .card{
+                flex-direction:column;
+            }
+
+            .imagen{
+                width:100%;
+                max-width:400px;
+            }
+
+            .info h2{
+                font-size:28px;
+            }
+
+            .info h3{
+                font-size:22px;
+            }
+
+            .telefono{
+                font-size:24px;
+            }
+
+            .info p{
+                font-size:18px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>MAPA TURÍSTICO MATUS</h1>
+
+    <div class="contenedor">
+
+        <!-- UBICACIÓN 1 -->
+        <div class="card">
+
+            <div class="info">
+
+                <h2>1. 🐄 FINCA MIRADOR ANDINO</h2>
+
+                <h3>Velasco Caluña Arnulfo Efraín</h3>
+
+                <div class="telefono">
+                    📞 0981808161
+                </div>
+
+                <p>🌾 Lo que encontrarás:</p>
+
+                <p>🐄 Ganadería.</p>
+
+                <p>🥬 Huerto con variedad de legumbres.</p>
+
+                <p>🥔 Sembrío de papas.</p>
+
+                <p>🌱 Cultivo de mellocos.</p>
+
+                <p>
+                    🌄 Finca agroecológica dedicada a la ganadería 
+                    y producción agrícola tradicional, rodeada de paisajes 
+                    naturales ideales para disfrutar del entorno 
+                    y capturar fotografías panorámicas durante 
+                    el recorrido turístico.
+                </p>
+
+                <button onclick="irLugar(-1.5703639,-78.50552222222223)">
+                    Cómo llegar
+                </button>
+
+            </div>
+
+            <div class="imagen">
+
+                <img src="LOGOS/HUERTOS/FINCA MIRADOR ANDINO.png" alt="Finca Mirador Andino">
+            </div>
+
+        </div>
+        
+        <!-- UBICACIÓN 2 -->
+        <div class="card">
+
+            <div class="info">
+
+                <h2>2. 🌾 HUERTA COSECHAS ANDINAS</h2>
+
+                <h3>Colcha Villa María Hortencia</h3>
+
+                <div class="telefono">
+                    📞 0980837426
+                </div>
+
+                <p>🌾 Cultivos y producción agrícola tradicional.</p>
+
+                <p>🥬 Huerto con variedad de cultivos y productos agrícolas tradicionales.</p>
+
+                <p>
+                    🌱 Huerta agroecológica dedicada al cultivo de productos tradicionales
+                    de la zona andina, ofreciendo a los visitantes un espacio natural
+                    donde podrán conocer prácticas agrícolas locales y disfrutar del entorno rural.
+                </p>
+
+                <button onclick="irLugar(-1.55765,-78.50455)">
+                    Cómo llegar
+                </button>
+
+            </div>
+
+            <div class="imagen">
+
+                <img src="LOGOS/HUERTOS/HUERTO COSECHAS ANDINAS.png" alt="Huerta Cosechas Andinas">
+
+            </div>
+
+        </div>
+
+        <!-- UBICACIÓN 3 -->
+        <div class="card">
+
+            <div class="info">
+
+                <h2>3. 🍦 HUERTA ANDRESITOO</h2>
+
+                <h3>Haro Olivo María Fernanda</h3>
+
+                <div class="telefono">
+                    📞 0979418325
+                </div>
+
+                <p>🌾 Cultivos y producción agrícola tradicional.</p>
+
+                <p>🍦 Elaboración de helados artesanales.</p>
+
+                <p>♻️ Compostera orgánica para prácticas sostenibles.</p>
+
+                <p>🥛 Producción de leche proveniente de su ganadería.</p>
+
+                <p>🥬 Huerto con variedad de cultivos y productos agrícolas tradicionales.</p>
+
+                <p>
+                    🌿 Huerta agroecológica que combina la producción artesanal
+                    y las prácticas rurales sostenibles, ofreciendo a los visitantes
+                    una experiencia auténtica con productos naturales y tradiciones
+                    del entorno andino.
+                </p>
+
+                <button onclick="irLugar(-1.5564528,-78.50554444444444)">
+                    Cómo llegar
+                </button>
+
+            </div>
+
+            <div class="imagen">
+
+                <img src="LOGOS/HUERTOS/HUERTO ANDRESITO.png" alt="Huerta Andresitoo">
+
+            </div>
+
+        </div>
+
+        <!-- UBICACIÓN 4 -->
+        <div class="card">
+
+            <div class="info">
+
+                <h2>4. 🌱 HUERTA SEMILLAS DEL CAMPO</h2>
+
+                <h3>Morales Chunata Martha Cecilia</h3>
+
+                <div class="telefono">
+                    📞 0979878310
+                </div>
+
+                <p>🌾 Producción agrícola y prácticas tradicionales:</p>
+
+                <p>🥬 Huerto con variedad de cultivos tradicionales.</p>
+
+                <p>🌽 Venta de semillas de maíz.</p>
+
+                <p>♻️ Elaboración y manejo de compostera orgánica.</p>
+
+                <p>⚙️ Trapiche tradicional para procesos agrícolas.</p>
+
+                <p>
+                    🌿 Huerta agroecológica enfocada en la producción agrícola 
+                    tradicional y prácticas sostenibles, donde los visitantes 
+                    podrán conocer cultivos locales, procesos artesanales 
+                    y técnicas rurales características de la comunidad andina.
+                </p>
+
+                <button onclick="irLugar(-1.5571389, -78.50311666666667)">
+                    Cómo llegar
+                </button>
+
+            </div>
+
+            <div class="imagen">
+
+                <img src="LOGOS/HUERTOS/HUERTO SEMILLAS DEL CAMPO.png" alt="Huerta Semillas del Campo">
+
+            </div>
+
+        </div>
+
+        <!-- UBICACIÓN 5 -->
+        <div class="card">
+
+            <div class="info">
+
+                <h2>5. 🍞 HUERTA SABORES DEL HORNO</h2>
+
+                <h3>Flores Buñay Ángel David</h3>
+
+                <div class="telefono">
+                    📞 0963761343
+                </div>
+
+                <p>🌾 Tradición gastronómica y cultivos rurales:</p>
+
+                <p>🥬 Huerto con variedad de cultivos y productos agrícolas tradicionales.</p>
+
+                <p>🔥 Horno artesanal utilizado para la preparación de pan, pollos y otros alimentos tradicionales.</p>
+
+                <p>
+                    🌿 Huerta agroecológica que combina cultivos tradicionales 
+                    con prácticas gastronómicas rurales, ofreciendo a los 
+                    visitantes una experiencia auténtica de sabores típicos 
+                    y vida comunitaria andina.
+                </p>
+
+                <button onclick="irLugar(-1.5572028, -78.50250277777778)">
+                    Cómo llegar
+                </button>
+
+            </div>
+
+            <div class="imagen">
+
+                <img src="LOGOS/HUERTOS/HUERTO SABORES DEL HORNO.png" alt="Huerta Sabores del Horno">
+
+            </div>
+
+        </div>
+
+        <!-- UBICACIÓN 6 -->
+        <div class="card">
+
+            <div class="info">
+
+                <h2>6. 🌽 HUERTO MOLINO ANDINO</h2>
+
+                <h3>Chunata Inca Rosa Victoria</h3>
+
+                <div class="telefono">
+                    📞 0967766328
+                </div>
+
+                <p>🌾 Servicios agroindustriales y producción rural:</p>
+
+                <p>⚙️ Servicio de molino industrial para granos y sus derivados.</p>
+
+                <p>🥬 Huerto con variedad de cultivos y productos agrícolas.</p>
+
+                <p>🌽 Cultivo tradicional de maíz.</p>
+
+                <p>🐔 Crianza de gallinas de campo.</p>
+
+                <p>🐹 Crianza tradicional de cuyes.</p>
+
+                <p>
+                    🌿 Huerto agroecológica que integra actividades agrícolas, 
+                    agroindustriales y crianza tradicional de animales menores, 
+                    permitiendo a los visitantes conocer procesos rurales típicos 
+                    y cultivos representativos de la comunidad andina.
+                </p>
+
+                <button onclick="irLugar(-1.558375, -78.50270833333333)">
+                    Cómo llegar
+                </button>
+
+            </div>
+
+            <div class="imagen">
+
+                <img src="LOGOS/HUERTOS/HUERTO MOLINO ANDINO.png" alt="Huerto Molino Andino">
+
+            </div>
+
+        </div>
+
+        <!-- UBICACIÓN 7 -->
+        <div class="card">
+
+            <div class="info">
+
+                <h2>7. 🥚 HUERTO SABORES Y COSECHAS</h2>
+
+                <h3>Inca González Eloisa Betsabé</h3>
+
+                <div class="telefono">
+                    📞 0969227635
+                </div>
+
+                <p>🌾 Producción agrícola y crianza tradicional:</p>
+
+                <p>🐔 Venta de gallinas ponedoras.</p>
+
+                <p>🥚 Venta de huevos runa y huevos rojos.</p>
+
+                <p>🐹 Crianza tradicional de cuyes.</p>
+
+                <p>🐓 Crianza de pollos blancos.</p>
+
+                <p>🍅 Huerto de tomate de árbol.</p>
+
+                <p>🍎 Árboles de manzana.</p>
+
+                <p>🌱 Huerto con variedad de cultivos y productos agrícolas.</p>
+
+                <p>
+                    🌿 Huerto agroecológica dedicada a la producción agrícola 
+                    y crianza tradicional de animales menores, donde los visitantes 
+                    podrán conocer cultivos típicos de la zona y disfrutar 
+                    de una experiencia auténtica del entorno rural andino.
+                </p>
+
+                <button onclick="irLugar(-1.5589806, -78.50272777777778)">
+                    Cómo llegar
+                </button>
+
+            </div>
+
+            <div class="imagen">
+
+                <img src="LOGOS/HUERTOS/HUERTO SABORES Y COSECHAS.png" alt="Huerto Sabores y Cosechas">
+
+            </div>
+
+        </div>
+
+        <!-- UBICACIÓN 8 -->
+        <div class="card">
+
+            <div class="info">
+
+                <h2>8. 🐇 HUERTO ENCANTO RURAL</h2>
+
+                <h3>Hidalgo Shunta Erika Anahí</h3>
+
+                <div class="telefono">
+                    📞 0994748079
+                </div>
+
+                <p>🌾 Tradición agropecuaria y productos artesanales:</p>
+
+                <p>🍪 Elaboración de galletas artesanales.</p>
+
+                <p>🐹 Crianza de cuyes.</p>
+
+                <p>🐔 Crianza de gallinas y gallos de pelea.</p>
+
+                <p>🦆 Crianza de patos y gansos.</p>
+
+                <p>🐇 Crianza de conejos..</p>
+
+                <p>
+                    🌿 Huerta agroecológica que combina la tradición rural 
+                    con la producción artesanal y la crianza de animales menores, 
+                    ofreciendo a los visitantes una experiencia auténtica 
+                    del campo andino y sus costumbres locales.
+                </p>
+
+                <button onclick="irLugar(-1.5594056, -78.50308333333334)">
+                    Cómo llegar
+                </button>
+
+            </div>
+
+            <div class="imagen">
+
+                <img src="LOGOS/HUERTOS/HUERTO ENCANTO RURAL.png" alt="Huerto Encanto Rural">
+
+            </div>
+
+        </div>
+
+        <!-- UBICACIÓN 9 -->
+        <div class="card">
+
+            <div class="info">
+
+                <h2>9. 🌿 HUERTA VERDE ANDINA</h2>
+
+                <h3>Juan Inca</h3>
+
+                <div class="telefono">
+                    📞 Sin contacto
+                </div>
+
+                <p>🌾 Cultivos y experiencias agrícolas:</p>
+
+                <p>🌱 Huerto con variedad de cultivos y productos agrícolas.</p>
+
+                <p>
+                    🌱 Huerta agroecológica dedicada al cultivo de legumbres 
+                    tradicionales, donde los visitantes podrán conocer prácticas 
+                    agrícolas locales y disfrutar de un entorno natural y tranquilo 
+                    durante el recorrido turístico.
+                </p>
+
+                <button onclick="irLugar(-1.5601389, -78.50318333333334)">
+                    Cómo llegar
+                </button>
+
+            </div>
+
+            <div class="imagen">
+
+                <img src="LOGOS/HUERTOS/HUERTO VERDE ANDINA.png" alt="Huerta Verde Andina">
+
+            </div>
+
+        </div>
+
+        <!-- UBICACIÓN 10 -->
+        <div class="card">
+
+            <div class="info">
+
+                <h2>10. 🐓 HUERTA VIDA CAMPESINA</h2>
+
+                <h3>Once Medina Teresa de Jesús</h3>
+
+                <div class="telefono">
+                    📞 0991018596
+                </div>
+
+                <p>🌾 Experiencias agropecuarias:</p>
+
+                <p>🌱 Huerto con variedad de cultivos y productos agrícolas.</p>
+
+                <p>🐹 Crianza tradicional de cuyes.</p>
+
+                <p>
+                    🌿 Espacio rural dedicado a las actividades agropecuarias 
+                    tradicionales, donde los visitantes podrán conocer 
+                    la crianza de animales menores y los cultivos locales 
+                    característicos de la comunidad andina.
+                </p>
+
+                <button onclick="irLugar(-1.560525, -78.50357222222222)">
+                    Cómo llegar
+                </button>
+
+            </div>
+
+            <div class="imagen">
+
+                <img src="LOGOS/HUERTOS/HUERTO VIDA CAMPESINA.png" alt="Huerta Vida Campesina">
+
+            </div>
+
+        </div>
+
+<!-- FALTA COORDENADAS -->
+
+        <!-- UBICACIÓN 11 -->
+        <div class="card">
+
+            <div class="info">
+
+                <h2>11. 🍽️ HUERTA SABOR ANDINO</h2>
+
+                <h3>Chunata Chacha Rosa Alexandra</h3>
+
+                <div class="telefono">
+                    📞 0989659577
+                </div>
+
+                <p>🌾 Gastronomía y experiencias rurales:</p>
+
+                <p>🌱 Huerto con variedad de cultivos y productos agrícolas.</p>
+
+                <p>🍲 Caldo de gallina criolla.</p>
+
+                <p>🐹 Papas con cuy tradicional.</p>
+
+                <p>🥔 Llapingachos típicos andinos.</p>
+
+                <p>
+                    🌿 Espacio agroecológico y gastronómico donde los visitantes 
+                    podrán disfrutar de platos tradicionales elaborados con 
+                    ingredientes locales, además de conocer cultivos característicos 
+                    de la zona rural andina.
+                </p>
+
+                <button onclick="irLugar(-1.5601139, -78.50417222222222)">
+                    Cómo llegar
+                </button>
+
+            </div>
+
+            <div class="imagen">
+
+                <img src="LOGOS/HUERTOS/HUERTO SABOR ANDINO.png" alt="Huerta Sabor Andino">
+
+            </div>
+
+        </div>
+
+        <!-- UBICACIÓN 12 -->
+        <div class="card">
+
+            <div class="info">
+
+                <h2>12. 🍞 HUERTA SABORES DEL CAMPO</h2>
+
+                <h3>Chunata Inca María Gloria</h3>
+
+                <div class="telefono">
+                    📞 0990982893
+                </div>
+
+                <p>🌾 Experiencias y productos tradicionales</p>
+
+                <p>🥤 Colada morada artesanal con pan tradicional.</p>
+
+                <p>🔥 Servicio de asadero tradicional.</p>
+
+                <p>🥬 Huerto con variedad de legumbres.</p>
+
+                <p>
+                    🌿 Espacio agroecológico donde los visitantes podrán 
+                    disfrutar de sabores tradicionales como la colada morada con pan, 
+                    además de conocer cultivos locales y experiencias 
+                    gastronómicas típicas de la zona rural andina.
+                </p>
+
+                <button onclick="irLugar(-1.5603778, -78.50404444444445)">
+                    Cómo llegar
+                </button>
+
+            </div>
+
+            <div class="imagen">
+
+                <img src="LOGOS/HUERTOS/HUERTO SABORES DEL CAMPO.png" alt="Huerto Sabores del Campo">
+
+            </div>
+
+        </div>
+
+        <!-- UBICACIÓN 13 -->
+        <div class="card">
+
+            <div class="info">
+
+                <h2>13. 🐹 HUERTA RINCÓN NATURAL</h2>
+
+                <h3>Chacha León Margarita Narcisa</h3>
+
+                <div class="telefono">
+                    📞 0967156504
+                </div>
+
+                <p>🌾 Atractivos y producción:</p>
+
+                <p>🐹 Crianza tradicional de cuyes.</p>
+
+                <p>
+                    🌿 Espacio agroecológico dedicado a la crianza tradicional 
+                    de cuyes y al cultivo de legumbres frescas, brindando a 
+                    los visitantes una experiencia auténtica de la vida rural 
+                    y agrícola andina.
+                </p>
+
+                <button onclick="irLugar(-1.5622917, -78.50505)">
+                    Cómo llegar
+                </button>
+
+            </div>
+
+            <div class="imagen">
+
+                <img src="LOGOS/HUERTOS/HUERTO RINCÓN NATURAL.png" alt="Huerto Rincón Natural">
+
+            </div>
+
+        </div>
+
+        <!-- UBICACIÓN 14 -->
+        <div class="card">
+
+            <div class="info">
+
+                <h2>14. 🌱 HUERTA AROMA ANDINO</h2>
+
+                <h3>Chacha Chunata Lorena Eliana</h3>
+
+                <div class="telefono">
+                    📞 0991234567
+                </div>
+
+                <p>🍷 Ofrece:</p>
+
+                <p>🍹 Vino artesanal de jamaica.</p>
+
+                <p>🍎 Vino artesanal de manzana.</p>
+
+                <p>🥬 Huerto con variedad de legumbres.</p>
+
+                <p>
+                    🌿 Espacio agroecológico dedicado a la producción artesanal 
+                    de vinos y cultivos tradicionales de legumbres, 
+                    ofreciendo una experiencia natural y gastronómica 
+                    para los visitantes.
+                </p>
+
+                <button onclick="irLugar(-1.5623639, -78.50841111111112)">
+                    Cómo llegar
+                </button>
+
+            </div>
+
+            <div class="imagen">
+
+                <img src="LOGOS/HUERTOS/HUERTO AROMA ANDINO.png" alt="Huerto Aroma Andino">
+
+            </div>
+
+        </div>
+
+        <!-- UBICACIÓN 15 -->
+        <div class="card">
+
+            <div class="info">
+
+                <h2>15. 🌿 HUERTA VERDE NATURAL</h2>
+
+                <h3>Chunata Inca Clara Luz</h3>
+
+                <div class="telefono">
+                    📞 Sin contacto
+                </div>
+
+                <p>🌾 Cultivos y producción agrícola:</p>
+
+                <p>🥬 Huerto con variedad de vegetales y cultivos tradicionales.</p>
+
+                <p>
+                    🌱 Huerta agroecológica dedicada al cultivo de vegetales frescos 
+                    y productos tradicionales de la zona andina, ofreciendo a 
+                    los visitantes un espacio natural donde podrán conocer 
+                    prácticas agrícolas locales y disfrutar del entorno rural.
+                </p>
+
+                <button onclick="irLugar(-1.5593306, -78.50327777777778)">
+                    Cómo llegar
+                </button>
+
+            </div>
+
+            <div class="imagen">
+
+                <img src="LOGOS/HUERTOS/HUERTO VERDE NATURAL.png" alt="Huerto Verde Natural">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        function irLugar(lat, lng){
+
+            const url =
+            `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+
+            window.open(url, "_blank");
+
+        }
+
+    </script>
+
+</body>
+
+</html>
