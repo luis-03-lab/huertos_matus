@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mapa Turístico Matus</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.55),
+    rgba(0,0,0,0.55)),
+    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1400');
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    min-height:100vh;
+
+    padding:25px;
+}
+
+.titulo{
+
+    text-align:center;
+    margin-bottom:45px;
+    color:white;
+}
+
+.titulo h1{
+
+    font-size:58px;
+    margin-bottom:10px;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.titulo p{
+
+    font-size:18px;
+    opacity:0.9;
+}
+
+.contenedor{
+
+    width:100%;
+    max-width:1450px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(340px,1fr));
+
+    gap:30px;
+}
+
+.card{
+
+    background:
+    rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    border:
+    1px solid rgba(255,255,255,0.18);
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.28);
+
+    transition:0.4s ease;
+
+    cursor:pointer;
+
+    position:relative;
+}
+
+.card:hover{
+
+    transform:
+    translateY(-10px);
+
+    box-shadow:
+    0 18px 40px rgba(0,0,0,0.35);
+}
+
+.imagen{
+
+    width:100%;
+    height:260px;
+
+    overflow:hidden;
+
+    position:relative;
+}
+
+.imagen img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:0.6s;
+}
+
+.card:hover .imagen img{
+
+    transform:scale(1.08);
+}
+
+.numero{
+
+    position:absolute;
+
+    top:15px;
+    left:15px;
+
+    background:#2d6a4f;
+
+    color:white;
+
+    width:45px;
+    height:45px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-weight:bold;
+
+    font-size:18px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,0.3);
+}
+
+.titulo-card{
+
+    padding:22px;
+    color:white;
+    text-align:center;
+}
+
+.titulo-card h2{
+
+    font-size:26px;
+    line-height:1.3;
+}
+
+.subtexto{
+
+    margin-top:10px;
+    font-size:15px;
+    opacity:0.85;
+}
+
+.info{
+
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:
+    max-height 0.6s ease;
+
+    background:
+    rgba(0,0,0,0.25);
+}
+
+.card.active .info{
+
+    max-height:1500px;
+}
+
+.contenido{
+
+    padding:28px;
+    color:white;
+}
+
+.contenido h3{
+
+    color:#d8f3dc;
+
+    margin-bottom:18px;
+
+    font-size:22px;
+}
+
+.telefono{
+
+    background:
+    rgba(255,255,255,0.15);
+
+    padding:14px 18px;
+
+    border-radius:14px;
+
+    margin-bottom:22px;
+
+    font-weight:600;
+
+    font-size:17px;
+
+    text-align:center;
+}
+
+.contenido p{
+
+    margin-bottom:14px;
+
+    line-height:1.8;
+
+    font-size:16px;
+}
+
+button{
+
+    width:100%;
+
+    margin-top:20px;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:
+    linear-gradient(135deg,#2d6a4f,#40916c);
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+button:hover{
+
+    transform:scale(1.02);
+
+    background:
+    linear-gradient(135deg,#1b4332,#2d6a4f);
+}
+
+.flecha{
+
+    position:absolute;
+
+    right:20px;
+    top:290px;
+
+    color:white;
+
+    font-size:28px;
+
+    transition:0.4s;
+}
+
+.card.active .flecha{
+
+    transform:rotate(180deg);
+}
+
+@media(max-width:900px){
+
+    .titulo h1{
+        font-size:42px;
+    }
+
+    .contenedor{
+
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    body{
+        padding:15px;
+    }
+
+    .titulo{
+        margin-bottom:25px;
+    }
+
+    .titulo h1{
+
+        font-size:31px;
+        line-height:1.3;
+    }
+
+    .titulo p{
+
+        font-size:14px;
+    }
+
+    .imagen{
+        height:220px;
+    }
+
+    .titulo-card{
+
+        padding:18px;
+    }
+
+    .titulo-card h2{
+
+        font-size:22px;
+    }
+
+    .contenido{
+
+        padding:20px;
+    }
+
+    .contenido h3{
+
+        font-size:19px;
+    }
+
+    .contenido p{
+
+        font-size:15px;
+    }
+
+    .telefono{
+
+        font-size:15px;
+    }
+
+    button{
+
+        font-size:15px;
+        padding:14px;
+    }
+
+    .flecha{
+
+        top:245px;
+        font-size:24px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="titulo">
+
+    <h1>🌿 MAPA TURÍSTICO MATUS 🌿</h1>
+
+    <p>
+        Descubre huertas, gastronomía y experiencias rurales andinas
+    </p>
+
+</div>
+
+<div class="contenedor">
+
+<!-- HUERTO 1 -->
+
+<div class="card" onclick="toggleCard(this)">
+
+<div class="imagen">
+
+<div class="numero">1</div>
+
+<img src="LOGOS/HUERTOS/FINCA MIRADOR ANDINO1.png">
+
+</div>
+
+<div class="flecha">⌄</div>
+
+<div class="titulo-card">
+
+<h2>🐄 FINCA MIRADOR ANDINO</h2>
+
+<div class="subtexto">
+Toca para ver información
+</div>
+
+</div>
+
+<div class="info">
+
+<div class="contenido">
+
+<h3>Velasco Caluña Arnulfo Efraín</h3>
+
+<div class="telefono">
+📞 0981808161
+</div>
+
+<p>🐄 Ganadería.</p>
+<p>🥬 Huerto con variedad de legumbres.</p>
+<p>🥔 Sembrío de papas.</p>
+<p>🌱 Cultivo de mellocos.</p>
+
+<button onclick="irLugar(event,-1.5703639,-78.50552222222223)">
+📍 Cómo llegar
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- HUERTO 2 -->
+
+<div class="card" onclick="toggleCard(this)">
+
+<div class="imagen">
+
+<div class="numero">2</div>
+
+<img src="LOGOS/HUERTOS/HUERTO COSECHAS ANDINAS.png">
+
+</div>
+
+<div class="flecha">⌄</div>
+
+<div class="titulo-card">
+
+<h2>🌾 HUERTA COSECHAS ANDINAS</h2>
+
+<div class="subtexto">
+Toca para ver información
+</div>
+
+</div>
+
+<div class="info">
+
+<div class="contenido">
+
+<h3>Colcha Villa María Hortencia</h3>
+
+<div class="telefono">
+📞 0980837426
+</div>
+
+<p>🌾 Producción agrícola tradicional.</p>
+<p>🥬 Cultivos andinos.</p>
+
+<button onclick="irLugar(event,-1.55765,-78.50455)">
+📍 Cómo llegar
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- HUERTO 3 -->
+
+<div class="card" onclick="toggleCard(this)">
+
+<div class="imagen">
+
+<div class="numero">3</div>
+
+<img src="LOGOS/HUERTOS/HUERTO ANDRESITO.png">
+
+</div>
+
+<div class="flecha">⌄</div>
+
+<div class="titulo-card">
+
+<h2>🍦 HUERTA ANDRESITOO</h2>
+
+<div class="subtexto">
+Toca para ver información
+</div>
+
+</div>
+
+<div class="info">
+
+<div class="contenido">
+
+<h3>Haro Olivo María Fernanda</h3>
+
+<div class="telefono">
+📞 0979418325
+</div>
+
+<p>🍦 Helados artesanales.</p>
+<p>♻️ Compostera orgánica.</p>
+<p>🥛 Producción de leche.</p>
+
+<button onclick="irLugar(event,-1.5564528,-78.50554444444444)">
+📍 Cómo llegar
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- HUERTO 4 -->
+
+<div class="card" onclick="toggleCard(this)">
+
+<div class="imagen">
+
+<div class="numero">4</div>
+
+<img src="LOGOS/HUERTOS/HUERTO SEMILLAS DEL CAMPO.png">
+
+</div>
+
+<div class="flecha">⌄</div>
+
+<div class="titulo-card">
+
+<h2>🌱 HUERTA SEMILLAS DEL CAMPO</h2>
+
+<div class="subtexto">
+Toca para ver información
+</div>
+
+</div>
+
+<div class="info">
+
+<div class="contenido">
+
+<h3>Morales Chunata Martha Cecilia</h3>
+
+<div class="telefono">
+📞 0979878310
+</div>
+
+<p>🌽 Venta de semillas.</p>
+<p>⚙️ Trapiche tradicional.</p>
+
+<button onclick="irLugar(event,-1.5571389,-78.50311666666667)">
+📍 Cómo llegar
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- HUERTO 5 -->
+
+<div class="card" onclick="toggleCard(this)">
+
+<div class="imagen">
+
+<div class="numero">5</div>
+
+<img src="LOGOS/HUERTOS/HUERTO SABORES DEL HORNO.png">
+
+</div>
+
+<div class="flecha">⌄</div>
+
+<div class="titulo-card">
+
+<h2>🍞 HUERTA SABORES DEL HORNO</h2>
+
+<div class="subtexto">
+Toca para ver información
+</div>
+
+</div>
+
+<div class="info">
+
+<div class="contenido">
+
+<h3>Flores Buñay Ángel David</h3>
+
+<div class="telefono">
+📞 0963761343
+</div>
+
+<p>🔥 Horno artesanal.</p>
+<p>🥬 Cultivos tradicionales.</p>
+
+<button onclick="irLugar(event,-1.5572028,-78.50250277777778)">
+📍 Cómo llegar
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- HUERTO 6 -->
+<!-- ========================= -->
+
+<div class="card" onclick="toggleCard(this)">
+
+<div class="imagen">
+
+<div class="numero">6</div>
+
+<img src="LOGOS/HUERTOS/HUERTO MOLINO ANDINO.png">
+
+</div>
+
+<div class="flecha">⌄</div>
+
+<div class="titulo-card">
+
+<h2>🌽 HUERTO MOLINO ANDINO</h2>
+
+<div class="subtexto">
+Toca para ver información
+</div>
+
+</div>
+
+<div class="info">
+
+<div class="contenido">
+
+<h3>Chunata Inca Rosa Victoria</h3>
+
+<div class="telefono">
+📞 0967766328
+</div>
+
+<p>⚙️ Molino industrial.</p>
+<p>🌽 Cultivo de maíz.</p>
+<p>🐔 Crianza de gallinas.</p>
+<p>🐹 Crianza de cuyes.</p>
+
+<button onclick="irLugar(event,-1.558375,-78.50270833333333)">
+📍 Cómo llegar
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- HUERTO 7 -->
+<!-- ========================= -->
+
+<div class="card" onclick="toggleCard(this)">
+
+<div class="imagen">
+
+<div class="numero">7</div>
+
+<img src="LOGOS/HUERTOS/HUERTO SABORES Y COSECHAS.png">
+
+</div>
+
+<div class="flecha">⌄</div>
+
+<div class="titulo-card">
+
+<h2>🥚 HUERTO SABORES Y COSECHAS</h2>
+
+<div class="subtexto">
+Toca para ver información
+</div>
+
+</div>
+
+<div class="info">
+
+<div class="contenido">
+
+<h3>Inca González Eloisa Betsabé</h3>
+
+<div class="telefono">
+📞 0969227635
+</div>
+
+<p>🥚 Venta de huevos runa.</p>
+<p>🐹 Crianza de cuyes.</p>
+<p>🍅 Tomate de árbol.</p>
+<p>🍎 Árboles de manzana.</p>
+
+<button onclick="irLugar(event,-1.5589806,-78.50272777777778)">
+📍 Cómo llegar
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- HUERTO 8 -->
+<!-- ========================= -->
+
+<div class="card" onclick="toggleCard(this)">
+
+<div class="imagen">
+
+<div class="numero">8</div>
+
+<img src="LOGOS/HUERTOS/HUERTO ENCANTO RURAL.png">
+
+</div>
+
+<div class="flecha">⌄</div>
+
+<div class="titulo-card">
+
+<h2>🐇 HUERTO ENCANTO RURAL</h2>
+
+<div class="subtexto">
+Toca para ver información
+</div>
+
+</div>
+
+<div class="info">
+
+<div class="contenido">
+
+<h3>Hidalgo Shunta Erika Anahí</h3>
+
+<div class="telefono">
+📞 0994748079
+</div>
+
+<p>🍪 Galletas artesanales.</p>
+<p>🐔 Crianza de aves.</p>
+<p>🦆 Patos y gansos.</p>
+<p>🐇 Crianza de conejos.</p>
+
+<button onclick="irLugar(event,-1.5594056,-78.50308333333334)">
+📍 Cómo llegar
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- HUERTO 9 -->
+<!-- ========================= -->
+
+<div class="card" onclick="toggleCard(this)">
+
+<div class="imagen">
+
+<div class="numero">9</div>
+
+<img src="LOGOS/HUERTOS/HUERTO VERDE ANDINA.png">
+
+</div>
+
+<div class="flecha">⌄</div>
+
+<div class="titulo-card">
+
+<h2>🌿 HUERTA VERDE ANDINA</h2>
+
+<div class="subtexto">
+Toca para ver información
+</div>
+
+</div>
+
+<div class="info">
+
+<div class="contenido">
+
+<h3>Juan Inca</h3>
+
+<div class="telefono">
+📞 Sin contacto
+</div>
+
+<p>🌱 Cultivos agrícolas.</p>
+<p>🥬 Legumbres tradicionales.</p>
+
+<button onclick="irLugar(event,-1.5601389,-78.50318333333334)">
+📍 Cómo llegar
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- HUERTO 10 -->
+<!-- ========================= -->
+
+<div class="card" onclick="toggleCard(this)">
+
+<div class="imagen">
+
+<div class="numero">10</div>
+
+<img src="LOGOS/HUERTOS/HUERTO VIDA CAMPESINA.png">
+
+</div>
+
+<div class="flecha">⌄</div>
+
+<div class="titulo-card">
+
+<h2>🐓 HUERTA VIDA CAMPESINA</h2>
+
+<div class="subtexto">
+Toca para ver información
+</div>
+
+</div>
+
+<div class="info">
+
+<div class="contenido">
+
+<h3>Once Medina Teresa de Jesús</h3>
+
+<div class="telefono">
+📞 0991018596
+</div>
+
+<p>🌱 Cultivos agrícolas.</p>
+<p>🐹 Crianza de cuyes.</p>
+
+<button onclick="irLugar(event,-1.560525,-78.50357222222222)">
+📍 Cómo llegar
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- HUERTO 11 -->
+<!-- ========================= -->
+
+<div class="card" onclick="toggleCard(this)">
+
+<div class="imagen">
+
+<div class="numero">11</div>
+
+<img src="LOGOS/HUERTOS/HUERTO SABOR ANDINO.png">
+
+</div>
+
+<div class="flecha">⌄</div>
+
+<div class="titulo-card">
+
+<h2>🍽️ HUERTA SABOR ANDINO</h2>
+
+<div class="subtexto">
+Toca para ver información
+</div>
+
+</div>
+
+<div class="info">
+
+<div class="contenido">
+
+<h3>Chunata Chacha Rosa Alexandra</h3>
+
+<div class="telefono">
+📞 0989659577
+</div>
+
+<p>🍲 Caldo de gallina criolla.</p>
+<p>🐹 Papas con cuy.</p>
+<p>🥔 Llapingachos andinos.</p>
+
+<button onclick="irLugar(event,-1.5601139,-78.50417222222222)">
+📍 Cómo llegar
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- HUERTO 12 -->
+<!-- ========================= -->
+
+<div class="card" onclick="toggleCard(this)">
+
+<div class="imagen">
+
+<div class="numero">12</div>
+
+<img src="LOGOS/HUERTOS/HUERTO SABORES DEL CAMPO1.png">
+
+</div>
+
+<div class="flecha">⌄</div>
+
+<div class="titulo-card">
+
+<h2>🍞 HUERTA SABORES DEL CAMPO</h2>
+
+<div class="subtexto">
+Toca para ver información
+</div>
+
+</div>
+
+<div class="info">
+
+<div class="contenido">
+
+<h3>Chunata Inca María Gloria</h3>
+
+<div class="telefono">
+📞 0990982893
+</div>
+
+<p>🥤 Colada morada artesanal.</p>
+<p>🔥 Servicio de asadero.</p>
+
+<button onclick="irLugar(event,-1.5603778,-78.50404444444445)">
+📍 Cómo llegar
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- HUERTO 13 -->
+<!-- ========================= -->
+
+<div class="card" onclick="toggleCard(this)">
+
+<div class="imagen">
+
+<div class="numero">13</div>
+
+<img src="LOGOS/HUERTOS/HUERTO RINCÓN NATURAL.png">
+
+</div>
+
+<div class="flecha">⌄</div>
+
+<div class="titulo-card">
+
+<h2>🐹 HUERTA RINCÓN NATURAL</h2>
+
+<div class="subtexto">
+Toca para ver información
+</div>
+
+</div>
+
+<div class="info">
+
+<div class="contenido">
+
+<h3>Chacha León Margarita Narcisa</h3>
+
+<div class="telefono">
+📞 0967156504
+</div>
+
+<p>🐹 Crianza tradicional de cuyes.</p>
+
+<button onclick="irLugar(event,-1.5622917,-78.50505)">
+📍 Cómo llegar
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- HUERTO 14 -->
+<!-- ========================= -->
+
+<div class="card" onclick="toggleCard(this)">
+
+<div class="imagen">
+
+<div class="numero">14</div>
+
+<img src="LOGOS/HUERTOS/HUERTO AROMA ANDINO1.jpeg">
+
+</div>
+
+<div class="flecha">⌄</div>
+
+<div class="titulo-card">
+
+<h2>🌱 HUERTA AROMA ANDINO</h2>
+
+<div class="subtexto">
+Toca para ver información
+</div>
+
+</div>
+
+<div class="info">
+
+<div class="contenido">
+
+<h3>Chacha Chunata Lorena Eliana</h3>
+
+<div class="telefono">
+📞 0991234567
+</div>
+
+<p>🍷 Vino artesanal de jamaica.</p>
+<p>🍎 Vino artesanal de manzana.</p>
+
+<button onclick="irLugar(event,-1.5623639,-78.50841111111112)">
+📍 Cómo llegar
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- HUERTO 15 -->
+<!-- ========================= 
+
+<div class="card" onclick="toggleCard(this)">
+
+<div class="imagen">
+
+<div class="numero">15</div>
+
+<img src="LOGOS/HUERTOS/HUERTO VERDE NATURAL.png">
+
+</div>
+
+<div class="flecha">⌄</div>
+
+<div class="titulo-card">
+
+<h2>🌿 HUERTA VERDE NATURAL</h2>
+
+<div class="subtexto">
+Toca para ver información
+</div>
+
+</div>
+
+<div class="info">
+
+<div class="contenido">
+
+<h3>Chunata Inca Clara Luz</h3>
+
+<div class="telefono">
+📞 Sin contacto
+</div>
+
+<p>🥬 Cultivos tradicionales.</p>
+<p>🌱 Vegetales frescos.</p>
+
+<button onclick="irLugar(event,-1.5593306,-78.50327777777778)">
+📍 Cómo llegar
+</button>
+
+</div>
+
+</div>-->
+
+</div>
+<script>
+
+function toggleCard(card){
+
+    card.classList.toggle("active");
+
+}
+
+function irLugar(event,lat,lng){
+
+    event.stopPropagation();
+
+    const url =
+    `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+
+    window.open(url,"_blank");
+
+}
+
+</script>
+
+</body>
+</html>
+
+</body>
+
+</html>
+
